@@ -1,0 +1,26 @@
+<p>
+  <b>Name:</b>
+  <%= @episode.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @episode.description %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= pluralize @episode.minutes, "minute" %>
+</p>
+
+<% if @episode.published_on %>
+<p>
+  <b>Published on:</b>
+  <%= @episode.published_on.strftime("%B %e, %Y") %>
+</p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_episode_path(@episode) %> |
+<%= link_to 'Destroy', @episode, method: :delete %> |
+<%= link_to 'Back', episodes_path %>
